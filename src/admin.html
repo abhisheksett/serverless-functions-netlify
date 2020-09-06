@@ -60,30 +60,54 @@
   }
 </style>
 
+<a href="#logout" class="logout">Log Out</a>
+
 <h1>Add a New Movie</h1>
 
 <div class="message"></div>
 
 <form id="add-movie">
-  <label for="id">IMDb Movie ID <input type="text" id="id" name="id" /></label>
-  <label for="title">Title <input type="text" id="title" name="title" /></label>
+  <label for="id">IMDb Movie ID <input type="text" id="id" name="id" required/></label>
+  <label for="title">Title <input type="text" id="title" name="title" required/></label>
   <label for="tagline"
     >Tagline <input type="text" id="tagline" name="tagline"
   /></label>
   <label for="poster"
-    >Poster <input type="text" id="poster" name="poster"
+    >Poster <input type="text" id="poster" name="poster" required
   /></label>
   <button type="submit">Add New Movie</button>
 </form>
 
+<script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 <script>
+
+  function handleIdentityEvent(user) {
+    if (user && user.token) {
+      return;
+    }
+
+    window.location.pathname = "/login";
+  }
+
+  window.netlifyIdentity.on('init', handleIdentityEvent);
+  window.netlifyIdentity.on('logout', handleIdentityEvent);
+
+  document.querySelector('.logout').addEventListener('click', (event) => {
+    event.preventDefault();
+    window.netlifyIdentity.logout();
+  })
+
   async function handleSubmit(event) {
     event.preventDefault();
 
     const data = new FormData(event.target);
 
+    const { access_token } = window.netlifyIdentity.currentUser().token;
     const result = await fetch('/.netlify/functions/add-movie', {
       method: 'POST',
+      headers: {
+        Authorization: `Bearer ${access_token}`
+      },
       body: JSON.stringify({
         id: data.get('id'), // get maps to name attribute in form
         title: data.get('title'), 

@@ -1,10 +1,10 @@
 {
-  "name": "frontendmasters-serverless",
+  "name": "serverless-functions-netlify",
   "scripts": {
     "dev": "eleventy --serve",
     "build": "eleventy"
   },
-  "author": "Jason Lengstorf <jason@lengstorf.com>",
+  "author": "Abhishek Sett <aabhishek.sett@gmail.com>",
   "devDependencies": {
     "@11ty/eleventy": "^0.11.0"
   },
@@ -13,9 +13,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jlengstorf/frontendmasters-serverless.git"
+    "url": "https://github.com/abhisheksett/serverless-functions-netlify"
   },
-  "license": "CC-BY-NC-SA-4.0",
+  "license": "MIT",
   "version": "1.0.0",
   "private": true
 }

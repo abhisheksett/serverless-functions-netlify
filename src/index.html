@@ -25,6 +25,17 @@
     margin: 0 0 auto;
   }
 
+  .admin {
+    margin: 0 auto;
+    max-width: 400px;
+    width: 90vw;
+  }
+
+  .admin {
+    display: block;
+    margin-bottom: 2rem;
+  }
+
   .movie h3 {
     font-size: 1rem;
     font-variant: small-caps;
@@ -56,6 +67,8 @@
 
 <h1>Movies, Floofed</h1>
 
+<a href="/admin" class="admin">Add a Movie</a>
+
 <div class="movies"></div>
 
 <template id="movie-template">
@@ -68,6 +81,8 @@
     <ul class="scores"></ul>
   </div>
 </template>
+
+<script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
 <script>
 

@@ -22,3 +22,14 @@ Following are the variables need to be added in .env file:
 ### Script
 
 - To start the application: `netlify dev`
+
+
+### Hosting
+
+The site is hosted at: https://sett-serverless.netlify.app/ 
+
+
+### Identity used
+
+- Netlify Identity
+- Login is done with [netlify-identity-widhet](https://github.com/netlify/netlify-identity-widget)
